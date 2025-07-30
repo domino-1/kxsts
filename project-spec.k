@@ -7,28 +7,28 @@ module PROJECT-SPEC
     syntax Id ::= "$a" [token]
                 | "a" [token]
 
-    claim <k> 
-            var $a : integer = 0 
-            trans { .Sequence } 
-            init { .Sequence } 
-            env { .Sequence } 
-            prop { true } => .K 
-        </k>
-        // <state>
-             <property> .Prop => true </property>
-        //     <enum-definitions> .Map </enum-definitions>
-             <variable-types> VARS => VARS [ $a <- integer ] </variable-types>
-             <transition> .K => .Sequence ~> .K </transition>
-            <init> .K => .K </init>
-             <env> .K => .Sequence ~> .K </env>
-             <variable-values> VALS => VALS [ $a <- 0/*?_:Int*/ ] </variable-values>
-        // </state>
-        // <linking>
-            <linking-declarations> .K => .K </linking-declarations>
-        // </linking>
-         <runner> .K => .K </runner>
-         <status> START => TRAN </status>
-         <return-status> NO-RETURN => NO-RETURN </return-status>
+    // claim <k> 
+    //         var $a : integer = 0 
+    //         trans { .Sequence } 
+    //         init { .Sequence } 
+    //         env { .Sequence } 
+    //         prop { true } => .K 
+    //     </k>
+    //     // <state>
+    //          <property> .Prop => true </property>
+    //     //     <enum-definitions> .Map </enum-definitions>
+    //          <variable-types> VARS => VARS [ $a <- integer ] </variable-types>
+    //          <transition> .K => .Sequence ~> .K </transition>
+    //         <init> .K => .K </init>
+    //          <env> .K => .Sequence ~> .K </env>
+    //          <variable-values> VALS => VALS [ $a <- 0/*?_:Int*/ ] </variable-values>
+    //     // </state>
+    //     // <linking>
+    //         <linking-declarations> .K => .K </linking-declarations>
+    //     // </linking>
+    //      <runner> .K => .K </runner>
+    //      <status> START => TRAN </status>
+    //      <return-status> NO-RETURN => NO-RETURN </return-status>
 
     // claim <k> 
     //         var $a : integer = 0 
@@ -65,7 +65,7 @@ module PROJECT-SPEC
         <variable-values> _VALS => ?_VALS_END </variable-values>
         <linking-declarations> .K => ?_DECL_END </linking-declarations>
         <runner> .K => ?_RUNNER_END </runner>
-        <status> START => PROPERTY-FAIL </status>
+        <status> START => ?STATUS </status>
         <return-status> NO-RETURN => ?_NO_RETURN </return-status>
-        //ensures isFail( ?STATUS ) ==Bool false
+        ensures notBool isFail( ?STATUS )
 endmodule
