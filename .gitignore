@@ -2,5 +2,6 @@
 **/*-kompiled
 .vscode
 *.code-workspace
+**/kore-exec.tar.gz
 
 todo.md
