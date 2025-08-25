@@ -65,7 +65,7 @@ module PROJECT-SPEC
         <variable-values> _VALS => ?_VALS_END </variable-values>
         <linking-declarations> .K => ?_DECL_END </linking-declarations>
         <runner> .K => ?_RUNNER_END </runner>
-        <status> START => ?STATUS </status>
+        <status> START => /*?STATUS*/PROPERTY-FAIL </status>
         <return-status> NO-RETURN => ?_NO_RETURN </return-status>
-        ensures notBool isFail( ?STATUS )
+        //ensures notBool isFail( ?STATUS )
 endmodule

@@ -91,8 +91,14 @@ module CONFIGURATION
                     | "NO-RETURN"
 
     syntax Bool ::= isFail( Status ) [function]
+                  | isEnumType( TypeName ) [function]
+
     rule isFail( PROPERTY-FAIL ) => true
-    rule isFail( _ ) => false
+    rule isFail( _ ) => false [owise]
+
+    rule isEnumType( integer ) => false
+    rule isEnumType( boolean ) => false
+    rule isEnumType( _ ) => true [owise]
 
     configuration <T>
         <k> $PGM:Program </k>
@@ -308,19 +314,21 @@ module RUN-TRANSITION
          <status> RUNNER </status> //remove assume true;s
 
     //havoc
-    rule [havoc-int]: <runner> havoc I:Id ; => .K ... </runner>
-         <variable-values> VALUES => VALUES [ I <- ?_:Int ] </variable-values>
-         <variable-types> I |-> integer </variable-types>
-         <status> RUNNER </status> requires ( I in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "integer" ) 
+    rule [havoc-int]: <runner> havoc X:Id ; => .K ... </runner>
+         <variable-values> VALUES => VALUES [ X <- ?_:Int ] </variable-values>
+         <variable-types>... X |-> integer ...</variable-types>
+         <status> RUNNER </status> requires ( X in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "integer" ) 
 
     rule [havoc-bool]: <runner> havoc I:Id ; => .K ... </runner>
          <variable-values> VALUES => VALUES [ I <- ?_:Bool ] </variable-values>
-         <variable-types> I |-> boolean </variable-types>
+         <variable-types>... I |-> boolean ...</variable-types>
          <status> RUNNER </status> requires ( I in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "boolean" ) 
 
     rule [havoc-enum]: <runner> havoc I:Id ; => .K ... </runner>
          <variable-values> VALUES => VALUES [ I <- ?_:Enum ] </variable-values>
-         <status> RUNNER </status> requires I in_keys( VALUES ) [priority(100)]
+         <variable-types>... I |-> ENUMTYPE ...</variable-types> 
+         <status> RUNNER </status> 
+         requires (I in_keys( VALUES )) andBool isEnumType( ENUMTYPE ) [owise]
 
     //choice
     rule [choice-unwrap]: <runner> choice O:OrBlocks => O ... </runner>
