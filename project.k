@@ -144,7 +144,7 @@ module EXPR-RULES
     imports STRING
 
     rule [expr-variable-lookup]: <k> X:Id => VARIABLES [X] ...</k>
-         <variable-values> VARIABLES </variable-values> requires X in_keys ( VARIABLES )
+         <variable-values> VARIABLES </variable-values> //! requires X in_keys ( VARIABLES )
     
     rule [expr-int-mul]: <k> I1:Int * I2:Int => I1 *Int I2 ...</k>
     rule [expr-int-div]: <k> I1:Int / I2:Int => I1 /Int I2 ...</k>
@@ -302,7 +302,8 @@ module RUN-TRANSITION
     rule [assign-update]: <runner> #active( X:Id ) => .K ... </runner>
          <k> V:Value => .K </k>
          <variable-values> VALUES => VALUES [ X <- V ] </variable-values>
-         <status> RUNNER </status> requires X in_keys( VALUES )
+         <status> RUNNER </status> //! requires X in_keys( VALUES )
+         //! this maybe allows declarations on assign?
 
     //assume
     rule [assume-unwrap]: <runner> assume E:Expr ; => assume #active ; ... </runner>
@@ -317,18 +318,21 @@ module RUN-TRANSITION
     rule [havoc-int]: <runner> havoc X:Id ; => .K ... </runner>
          <variable-values> VALUES => VALUES [ X <- ?_:Int ] </variable-values>
          <variable-types>... X |-> integer ...</variable-types>
-         <status> RUNNER </status> requires ( X in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "integer" ) 
+         <status> RUNNER </status> //! requires ( X in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "integer" ) 
+         //! this maybe allows declarations on havoc?
 
     rule [havoc-bool]: <runner> havoc I:Id ; => .K ... </runner>
          <variable-values> VALUES => VALUES [ I <- ?_:Bool ] </variable-values>
          <variable-types>... I |-> boolean ...</variable-types>
-         <status> RUNNER </status> requires ( I in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "boolean" ) 
+         <status> RUNNER </status> //! requires ( I in_keys( VALUES ) ) //andBool ( Id2String( TYPES [I] ) ==String "boolean" ) 
+         //! this maybe allows declarations on havoc?
 
     rule [havoc-enum]: <runner> havoc I:Id ; => .K ... </runner>
          <variable-values> VALUES => VALUES [ I <- ?_:Enum ] </variable-values>
          <variable-types>... I |-> ENUMTYPE ...</variable-types> 
          <status> RUNNER </status> 
-         requires (I in_keys( VALUES )) andBool isEnumType( ENUMTYPE ) [owise]
+         requires /*//! (I in_keys( VALUES )) andBool */ isEnumType( ENUMTYPE ) [owise]
+         //! this maybe allows declarations on havoc?
 
     //choice
     rule [choice-unwrap]: <runner> choice O:OrBlocks => O ... </runner>
@@ -370,7 +374,7 @@ module PROJECT
     imports DECLARATIONS
     imports TRAN-INIT
 
-    //! Important! This will currently enter an infinite loop, krun only with --depth bound!
+    // Important! This will currently enter an infinite loop, krun only with --depth bound!
     imports TRAN-TRAN
     imports TRAN-ENV
 

@@ -1,0 +1,614 @@
+kore-exec: [88325856] Warning (WarnStuckClaimState):
+    The configuration's term doesn't unify with the destination's term and the configuration cannot be rewritten further. Location: /mnt/e/bme/dev/onlab/tdk/kxsts/project-spec.k:52:11-69:66
+Context:
+    (InfoReachability) while checking the implication
+kore-exec: [88387250] Warning (WarnUnexploredBranches):
+    1513 branches were still unexplored when the action failed.
+  #Not ( #Exists B1 . #Exists B2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    B1:Bool != B2:Bool
+  } )
+#And
+  #Not ( #Exists B1 . #Exists B2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    B1:Bool && B2:Bool
+  } )
+#And
+  #Not ( #Exists B1 . #Exists B2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    B1:Bool == B2:Bool
+  } )
+#And
+  #Not ( #Exists B1 . #Exists B2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    B1:Bool || B2:Bool
+  } )
+#And
+  #Not ( #Exists B . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    ! B:Bool
+  } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      var K0 : K1 = HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 != HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 && HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 * HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 + HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 - HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 / HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 := HOLE ;
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 < HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 <= HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 == HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 > HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 >= HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K0 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      K0 || HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( K0:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE != K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE && K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE * K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE + K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE - K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE / K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE < K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE <= K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE == K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE > K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE >= K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . #Exists K1 . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE || K1
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      ! HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      + HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      - HOLE
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      HOLE:Expr
+    }
+  #And
+    {
+      true
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists HOLE . {
+      _VALS [ a <- 0 ] [ a ]
+    #Equals
+      assume HOLE ;
+    }
+  #And
+    {
+      false
+    #Equals
+      isKResult ( HOLE:Expr ~> .K )
+    } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int != I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int * I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int + I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int - I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int / I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int < I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int <= I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int == I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int > I2:Int
+  } )
+#And
+  #Not ( #Exists I1 . #Exists I2 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    I1:Int >= I2:Int
+  } )
+#And
+  #Not ( #Exists I . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    + I:Int
+  } )
+#And
+  #Not ( #Exists I . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    - I:Int
+  } )
+#And
+  #Not ( #Exists X1 . #Exists X2 . #Exists X3 . #Exists X4 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    X1 . X2 != X3 . X4
+  } )
+#And
+  #Not ( #Exists X1 . #Exists X2 . #Exists X3 . #Exists X4 . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    X1 . X2 == X3 . X4
+  } )
+#And
+  #Not ( #Exists X . {
+    _VALS [ a <- 0 ] [ a ]
+  #Equals
+    X:Id
+  } )
+#And
+  <T>
+    <k>
+      _VALS [ a <- 0 ] [ a ] ~> #freezer_<__EXPR-SYNTAX_Expr_Expr_Expr0_ ( 10 ~> .K ) ~> .K
+    </k>
+    <state>
+      <property>
+        a < 10
+      </property>
+      <enum-definitions>
+        .Map
+      </enum-definitions>
+      <variable-types>
+        _VARS [ a <- integer ]
+      </variable-types>
+      <transition>
+        a := a + 1 ;  .Sequence ~> .K
+      </transition>
+      <init>
+        .K
+      </init>
+      <env>
+        .Sequence ~> .K
+      </env>
+      <variable-values>
+        _VALS [ a <- 0 ]
+      </variable-values>
+    </state>
+    <linking>
+      <linking-declarations>
+        .K
+      </linking-declarations>
+    </linking>
+    <runner>
+      .K
+    </runner>
+    <status>
+      PROPERTY-EVALUATION-OR-FAIL
+    </status>
+    <return-status>
+      INIT
+    </return-status>
+  </T>
+[Error] Prover: backend terminated because the configuration cannot be
+rewritten further. See output for more details.

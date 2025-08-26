@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/domi/.local/bin/pyk", line 8, in <module>
+    sys.exit(main())
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/__main__.py", line 98, in main
+    execute(options)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/__main__.py", line 273, in exec_prove
+    proofs = prove_rpc.prove_rpc(options=options)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/ktool/prove_rpc.py", line 48, in prove_rpc
+    return [
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/ktool/prove_rpc.py", line 49, in <listcomp>
+    self._prove_claim_rpc(
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/ktool/prove_rpc.py", line 94, in _prove_claim_rpc
+    prover.advance_proof(proof, max_iterations=max_iterations)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/proof/proof.py", line 538, in advance_proof
+    results = self.step_proof(step)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/proof/reachability.py", line 840, in step_proof
+    csubst = self._check_subsume(step.node, step.target, proof_id=step.proof_id)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/proof/reachability.py", line 798, in _check_subsume
+    _csubst = self.kcfg_explore.cterm_symbolic.implies(node.cterm, target_cterm, assume_defined=self.assume_defined)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/cterm/symbolic.py", line 212, in implies
+    antecedent_kore = self.kast_to_kore(antecedent.kast)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/cterm/symbolic.py", line 93, in kast_to_kore
+    return kast_to_kore(self._definition, kinner, sort=GENERATED_TOP_CELL)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/konvert/_kast_to_kore.py", line 86, in kast_to_kore
+    kast = _add_sort_injections(definition, kast, sort)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/konvert/_kast_to_kore.py", line 148, in _add_sort_injections
+    term = _inject(definition, term, sort)
+  File "/home/domi/.local/lib/python3.10/site-packages/pyk/konvert/_kast_to_kore.py", line 216, in _inject
+    raise ValueError(f'Sort {actual_sort.name} is not a subsort of {sort.name}: {term}')
+ValueError: Sort TypeName is not a subsort of Expr: KVariable(name='K1', sort=KSort(name='TypeName'))
